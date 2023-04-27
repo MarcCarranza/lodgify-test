@@ -2,7 +2,7 @@
 import { h } from "preact";
 
 // Types
-import { TasksData } from "../../types";
+import { Task, TasksData } from "../../types";
 
 // Style
 import style from "./TasksList.css";
@@ -37,16 +37,37 @@ export function TasksList({ data, isLoading }: Props): JSX.Element {
   };
 
   // Renderization
-  const renderList = (): JSX.Element[] => {
-    return data.map((task, index) => {
+  const renderTasks = (tasks: Task[]): JSX.Element[] => {
+    return tasks.map((task) => {
       return (
-        <li class={style.list__element} key={index}>
-          <span class={style.element__name}>{task.name}</span>
+        <li class={style.tasksList__task}>
+          <input type="checkbox" checked={task.checked} />
+          <p>{task.description}</p>
+        </li>
+      );
+    });
+  };
+
+  const renderGroups = (): JSX.Element[] => {
+    return data.map((group, index) => {
+      const isOpen = isListOpen(index);
+      return (
+        <li class={style.group__wrapper} key={index}>
+          <div class={style.group}>
+            <span class={style.group__name}>{group.name}</span>
+            <div
+              class={style.group__toggle}
+              onClick={() => onToggleTaskList(index)}
+            >
+              {isOpen ? "Hide" : "Show"}
+            </div>
+          </div>
+          {/* TODO: This in pure CSS? */}
           <div
-            class={style.element__toggle}
-            onClick={() => onToggleTaskList(index)}
+            style={{ maxHeight: isOpen ? 200 : 0 }}
+            class={style.tasksList__wrapper}
           >
-            {isListOpen(index) ? "Hide" : "Show"}
+            <ul class={style.tasksList}>{renderTasks(group.tasks)}</ul>
           </div>
         </li>
       );
@@ -65,8 +86,8 @@ export function TasksList({ data, isLoading }: Props): JSX.Element {
           <div />
         </div>
       </div>
-      <ul class={style.container__list}>
-        {!isLoading && data && renderList()}
+      <ul class={style.container__group}>
+        {!isLoading && data && renderGroups()}
       </ul>
     </div>
   );
