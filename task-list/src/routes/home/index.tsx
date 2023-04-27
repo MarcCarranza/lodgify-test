@@ -1,30 +1,26 @@
+// Dependencies
 import { h } from 'preact';
-import style from './style.css';
 import { useEffect, useState } from 'preact/hooks';
 
-type Task = {
-	checked: boolean
-	description: string
-	value: number
-}
+// Components
+import { TasksList } from '../../components/TasksList';
 
-type TasksData = Array<{
-	name: string
-	tasks: Array<Task>
-}>
+// Types
+import { TasksData } from '../../types';
+
+// Style
+import style from './style.css';
 
 const Home = () => {
 	const [tasksData, setTasksData] = useState<TasksData>([])
+	const [isLoading, setLoading] = useState<boolean>(true)
 
 	useEffect(() => {
 		getTasksList()
 	}, [])
 
-	useEffect(() => {
-		console.log(tasksData)
-	}, [tasksData])
-
 	const getTasksList = async () => {
+		setLoading(true)
 		fetch('https://gist.githubusercontent.com/huvber/ba0d534f68e34f1be86d7fe7eff92c96/raw/98a91477905ea518222a6d88dd8b475328a632d3/mock-progress')
 			.then(res => {
 				if (!res.ok) {
@@ -38,18 +34,12 @@ const Home = () => {
 			.catch(err => {
 				console.log('Error on getTasksList catch', err)
 			})
+		setLoading(false)
 	}
 
 	return (
 		<div class={style.home}>
-			<div className="container">
-				<div className="container__header">
-					
-				</div>
-				<div className="container__list">
-					
-				</div>
-			</div>
+			<TasksList data={tasksData} isLoading={isLoading} />
 		</div>
 	);
 };
