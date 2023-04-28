@@ -1,6 +1,6 @@
 {
-  "name": "task-list",
-  "short_name": "task-list",
+  "name": "Lodgify Test - Marc Carranza",
+  "short_name": "lodgify-test",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
