@@ -1,10 +1,10 @@
 // Dependencies
 import { h } from "preact";
+import { useEffect, useState } from "preact/hooks";
 
 // Style
 import style from "./ProgressBar.css";
 import { TasksData } from "../../types";
-import { useEffect, useRef, useState } from "preact/hooks";
 
 type Props = {
   data: TasksData;

@@ -638,8 +638,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 // Dependencies
 
 
-// Style
 
+// Style
 
 function ProgressBar_ProgressBar(_ref) {
   var data = _ref.data,
