@@ -2,7 +2,7 @@
 
 ## **Make it run** 👟
 
-Here you can check out the [demo]()
+Here you can check out the [demo](https://marccarranza.github.io/lodgify-test/)
 
 - Install the project dependencies with `npm install`.
 - Once installed, execute `npm run dev` or `npm run serve` on your terminal and click on the URL once it´s compiled.
