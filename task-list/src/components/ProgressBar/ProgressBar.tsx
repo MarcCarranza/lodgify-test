@@ -13,6 +13,9 @@ type Props = {
 
 export function ProgressBar({ data, loading }: Props): JSX.Element {
   const getCompletedPercentage = (): string => {
+    if (loading) {
+      return "0%";
+    }
     let totalValue = 0;
     let completedValue = 0;
     for (let groupI = 0; groupI < data.length; groupI++) {

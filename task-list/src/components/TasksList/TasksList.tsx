@@ -4,6 +4,7 @@ import { useState } from "preact/hooks";
 
 // Components
 import { ProgressBar } from "../ProgressBar/ProgressBar";
+import { Loader } from "../Loader/Loader";
 
 // Types
 import { Task, TasksData } from "../../types";
@@ -110,7 +111,11 @@ export function TasksList({
         <ProgressBar data={data} loading={isLoading} />
       </div>
       <ul class={style.container__group}>
-        {!isLoading && data && renderGroups()}
+        {!isLoading && data ? (
+          renderGroups()
+        ) : (
+          <Loader container={50} size={35} />
+        )}
       </ul>
     </div>
   );

@@ -1,20 +1,7 @@
 .home {
-	width: 100%;
-	height: 100vh;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-/* .resource:hover {
-	border: 1px solid #000;
-	box-shadow: 0 25px 50px -12px #673ab888;
-}
-
-@media (prefers-color-scheme: dark) {
-	.resource {
-		color: #fff;
-		background-color: #181818;
-	}
-	.resource:hover {
-		border: 1px solid #bbb;
-		box-shadow: 0 25px 50px -12px #673ab888;
-	}
-} */
