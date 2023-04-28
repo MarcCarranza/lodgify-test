@@ -12,10 +12,6 @@ type Props = {
 };
 
 export function ProgressBar({ data, loading }: Props): JSX.Element {
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   const getCompletedPercentage = (): string => {
     let totalValue = 0;
     let completedValue = 0;
@@ -29,8 +25,8 @@ export function ProgressBar({ data, loading }: Props): JSX.Element {
       }
     }
 
-    const test = ((completedValue * 100) / totalValue).toFixed(0);
-    return `${test}%`;
+    const normalizedValue = ((completedValue * 100) / totalValue).toFixed(0);
+    return `${normalizedValue}%`;
   };
 
   return (

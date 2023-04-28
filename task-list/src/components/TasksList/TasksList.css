@@ -7,10 +7,16 @@
     max-width: 1280px;
     min-width: 500px;
     padding: 1rem;
+    margin: 1rem;
 }
 
 .container__header {
+    padding: 1.5rem 1rem;
+}
 
+.header__title {
+    margin: 0;
+    padding: .5rem 0;
 }
 
 .container__group {
@@ -24,6 +30,10 @@
 .group__wrapper {
     padding: 1rem 1rem;
     border-bottom: 1px solid gainsboro;
+}
+
+.group__wrapper:last-child {
+    border-bottom: none;
 }
 
 .group {
@@ -41,7 +51,7 @@
 .tasksList__wrapper {
     max-height: 0px;
     overflow: hidden;
-    transition: max-height .3s ease-out;
+    transition: max-height .4s ease-out;
 }
 
 .tasksList {

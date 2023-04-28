@@ -81,7 +81,6 @@ export function TasksList({
               {isOpen ? "Hide" : "Show"}
             </div>
           </div>
-          {/* TODO: This in pure CSS? */}
           <div
             style={{ maxHeight: isOpen ? 200 : 0 }}
             class={style.tasksList__wrapper}
@@ -96,7 +95,7 @@ export function TasksList({
   return (
     <div class={style.container}>
       <div class={style.container__header}>
-        <h3>Test</h3>
+        <h3 class={style.header__title}>Lodgify Grouped Tasks</h3>
         {/* Progress bar */}
         <ProgressBar data={data} loading={isLoading} />
       </div>
