@@ -1,0 +1,20 @@
+.progress {
+    background-color: gainsboro;
+    height: 20px;
+    position: relative;
+}
+
+.progress__current {
+    background-color: teal;
+    height: 100%;
+    transition: width .3s ease-out;
+}
+
+.progress__percentage {
+    color: white;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    font-size: .95rem;
+    transition: left .3s ease-out;
+}

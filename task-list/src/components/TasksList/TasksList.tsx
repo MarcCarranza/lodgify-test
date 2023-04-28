@@ -1,19 +1,27 @@
 // Dependencies
 import { h } from "preact";
+import { useState } from "preact/hooks";
+
+// Components
+import { ProgressBar } from "../ProgressBar/ProgressBar";
 
 // Types
 import { Task, TasksData } from "../../types";
 
 // Style
 import style from "./TasksList.css";
-import { useState } from "preact/hooks";
 
 type Props = {
   data: TasksData;
   isLoading: boolean;
+  updateTasks: Function;
 };
 
-export function TasksList({ data, isLoading }: Props): JSX.Element {
+export function TasksList({
+  data,
+  isLoading,
+  updateTasks,
+}: Props): JSX.Element {
   const [shownTasks, setShownTasks] = useState<number[]>([]);
 
   // Handlers
@@ -30,18 +38,29 @@ export function TasksList({ data, isLoading }: Props): JSX.Element {
     setShownTasks(updatedShown);
   };
 
+  const onToggleTaskCheck = (groupIndex: number, taskIndex: number) => {
+    let updatedData = [...data];
+    updatedData[groupIndex].tasks[taskIndex].checked =
+      !data[groupIndex].tasks[taskIndex].checked;
+    updateTasks(updatedData);
+  };
+
   // Functionality
-  const isListOpen = (listIndex): boolean => {
+  const isListOpen = (listIndex: number): boolean => {
     const found = shownTasks.find((val) => val === listIndex);
     return found !== undefined;
   };
 
   // Renderization
-  const renderTasks = (tasks: Task[]): JSX.Element[] => {
-    return tasks.map((task) => {
+  const renderTasks = (tasks: Task[], groupIndex: number): JSX.Element[] => {
+    return tasks.map((task, index) => {
       return (
-        <li class={style.tasksList__task}>
-          <input type="checkbox" checked={task.checked} />
+        <li class={style.tasksList__task} key={index}>
+          <input
+            type="checkbox"
+            checked={task.checked}
+            onChange={() => onToggleTaskCheck(groupIndex, index)}
+          />
           <p>{task.description}</p>
         </li>
       );
@@ -67,7 +86,7 @@ export function TasksList({ data, isLoading }: Props): JSX.Element {
             style={{ maxHeight: isOpen ? 200 : 0 }}
             class={style.tasksList__wrapper}
           >
-            <ul class={style.tasksList}>{renderTasks(group.tasks)}</ul>
+            <ul class={style.tasksList}>{renderTasks(group.tasks, index)}</ul>
           </div>
         </li>
       );
@@ -79,12 +98,7 @@ export function TasksList({ data, isLoading }: Props): JSX.Element {
       <div class={style.container__header}>
         <h3>Test</h3>
         {/* Progress bar */}
-        <div>
-          {/* Percentage */}
-          <div></div>
-          {/* Progress */}
-          <div />
-        </div>
+        <ProgressBar data={data} loading={isLoading} />
       </div>
       <ul class={style.container__group}>
         {!isLoading && data && renderGroups()}
