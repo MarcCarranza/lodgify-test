@@ -28,11 +28,13 @@ The request to the API is in **src/routes/home/index.tsx**.
 
 ### **Error Handler**
 
-After some failed requested because the connection crashed, I made a basic error handler that shows a generic message, it can be tested by adding at line 33 of **src/routes/home/index.tsx**.:
+After some failed requested because the connection crashed, I made a basic error handler that shows a generic message, it can be tested by adding:
 
 ```
 throw Error
 ```
+
+at line 33 of **src/routes/home/index.tsx**.
 
 ![](https://github.com/MarcCarranza/lodgify-test/blob/main/src/assets/error.png)
 
@@ -46,7 +48,7 @@ You'll find the component **Loader**, which at first does nothing as the respons
 
 and reloading the page the Loader will show up (but the data won't be shown).
 
-![](https://gifs.com/gif/loader-79Bvlr)
+![](https://github.com/MarcCarranza/lodgify-test/blob/main/src/assets/load.gif)
 
 ### **ProgressBar**
 
