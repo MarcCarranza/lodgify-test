@@ -30,6 +30,8 @@ const Home = () => {
           console.log("Error on getTasksList then");
           setError(true);
         }
+
+        throw Error;
         return res.json();
       })
       .then((parsedRes) => {
