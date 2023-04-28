@@ -1,0 +1,339 @@
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Poppins:wght@400;700&display=swap);
+:root {
+  font-family: "Helvetica Neue", arial, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color-scheme: light dark;
+  color: #444;
+  background: #fafafa;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #fff;
+    background: #1c1c1c;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+#app > main {
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  min-height: 100vh;
+  max-width: 1280px;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+
+.progress__ADcbM {
+  background-color: gainsboro;
+  height: 20px;
+  position: relative;
+  border-radius: 20px;
+}
+
+.progress__current__7EFsS {
+  background-color: teal;
+  height: 100%;
+  transition: width 0.3s ease-out;
+  border-radius: 20px;
+}
+
+.progress__percentage__Fahq2 {
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  z-index: 99;
+  font-size: 0.95rem;
+  transition: all 0.3s ease-out;
+  line-height: 1.2;
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 500;
+  padding-left: 0.5rem;
+}
+
+.container__bBvht {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+
+.loader__text__4eIh2 {
+  color: #5558;
+  margin: 0.5rem;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.loader__Ryvqc {
+  background-color: teal;
+  border-radius: 100%;
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+
+.loader__interior__KDdOX {
+  background-color: #ffffff;
+  border-radius: 100%;
+  position: absolute;
+  -ms-transform-origin: top right;
+      transform-origin: top right;
+  animation: loading__8s8ZX 1s infinite linear;
+}
+
+@keyframes loading__8s8ZX {
+  0% {
+    left: 4px;
+  }
+  25% {
+    left: 20px;
+  }
+  50% {
+    left: 4px;
+  }
+  75% {
+    left: -4px;
+  }
+  100% {
+    left: 4px;
+  }
+}
+
+/* TODO: Check that styles are consistent throught browsers */
+
+/* Container  */
+.container__u7odg {
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  width: 50%;
+  max-width: 1280px;
+  min-width: 500px;
+  padding: 1rem;
+  font-family: "Noto Sans", sans-serif;
+  background-color: #ffffff;
+}
+
+.container__header__maatf {
+  padding: 1.5rem 1rem;
+}
+
+.header__title__gaD0c {
+  margin: 0;
+  padding: 0.5rem 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Groups */
+
+.container__group__plBzN {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 10px;
+  border: 1px solid gainsboro;
+}
+
+.group__wrapper__sb29P {
+  padding: 1rem 1rem;
+  border-bottom: 1px solid gainsboro;
+}
+
+.group__wrapper__sb29P:last-child {
+  border-bottom: none;
+}
+
+.group__EhHwp {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+}
+
+.group__icon__RYZPe {
+  height: 1.2rem;
+  opacity: 0.35;
+}
+
+.group__name__Incgv {
+  -ms-flex: 8;
+      flex: 8;
+  font-weight: 500;
+  margin: 0;
+  padding: 0.5rem 0.5rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+}
+
+/* Panel toggle */
+
+.group__toggle__d2qvN {
+  -ms-flex: 2;
+      flex: 2;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+  cursor: pointer;
+}
+
+.toggle__wrapper__uTuhh {
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 0.35;
+  transition: opacity 0.2s linear;
+}
+
+.toggle__text__NvQnB {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.toggle__wrapper__uTuhh img {
+  transition: transform 0.2s ease-out;
+}
+
+.toggle__wrapper__uTuhh:hover {
+  opacity: 0.7;
+}
+
+/* Task list */
+
+.tasksList__wrapper__PwMoZ {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+}
+
+.tasksList__6icGu {
+  list-style-type: none;
+  overflow: hidden;
+  font-size: 14px;
+  padding: 1rem;
+}
+
+.tasksList__task__0UEoz {
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.tasksList__task__0UEoz p {
+  padding-left: 0.5rem;
+}
+
+/* Error */
+
+.error_container__tk8Qz {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  padding: 2rem 0;
+  background-color: rgba(255, 0, 0, 0.2);
+  color: black;
+}
+
+/* Checkboxes */
+label {
+  display: block;
+  position: relative;
+  width: 17px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark__jIcxJ {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+  background-color: #ffffff;
+  transition: all 0.3s ease-out;
+}
+
+/* When the checkbox is checked, add a blue background */
+input:checked ~ .checkmark__jIcxJ {
+  background-color: rgba(0, 200, 160);
+  border-color: rgba(0, 200, 160);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark__jIcxJ:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+input:checked ~ .checkmark__jIcxJ:after {
+  display: block;
+}
+
+.checkmark__jIcxJ:after {
+  left: 4px;
+  top: 2px;
+  width: 5px;
+  height: 6px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.home__uRcqa {
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  scroll-behavior: auto;
+  padding: 3rem 0;
+}
+
+
+/*# sourceMappingURL=ssr-bundle.534fe.css.map*/
