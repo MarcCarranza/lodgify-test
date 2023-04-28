@@ -46,7 +46,7 @@ You'll find the component **Loader**, which at first does nothing as the respons
 
 and reloading the page the Loader will show up (but the data won't be shown).
 
-![](https://raw.githubusercontent.com/MarcCarranza/lodgify-test/main/src/assets/load.gif?token=GHSAT0AAAAAACB4SD5VXMDXE7XB7DFCP6QCZCL76NQ)
+![](https://github.com/MarcCarranza/lodgify-test/blob/main/src/assets/load.gif)
 
 ### **ProgressBar**
 
