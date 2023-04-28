@@ -16,6 +16,7 @@
   color: white;
   position: absolute;
   top: 0;
+  left: 10px;
   z-index: 99;
   font-size: 0.95rem;
   transition: left 0.3s ease-out;
