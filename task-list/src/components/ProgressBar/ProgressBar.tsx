@@ -1,20 +1,33 @@
 // Dependencies
 import { h } from "preact";
-import { useEffect } from "preact/hooks";
 
 // Style
 import style from "./ProgressBar.css";
 import { TasksData } from "../../types";
+import { useEffect, useRef, useState } from "preact/hooks";
 
 type Props = {
   data: TasksData;
   loading: boolean;
+  error: boolean;
 };
 
-export function ProgressBar({ data, loading }: Props): JSX.Element {
-  const getCompletedPercentage = (): string => {
-    if (loading) {
-      return "0%";
+export function ProgressBar({ data, loading, error }: Props): JSX.Element {
+  //   State
+  const [percentage, setPercentage] = useState<number>(0);
+
+  // Effects
+  useEffect(() => {
+    if (data.length) {
+      const currentPcg = getCompletedPercentage();
+      setPercentage(currentPcg);
+    }
+  }, [data]);
+
+  // Functionality
+  const getCompletedPercentage = (): number => {
+    if (data.length < 0) {
+      return 0;
     }
     let totalValue = 0;
     let completedValue = 0;
@@ -29,7 +42,17 @@ export function ProgressBar({ data, loading }: Props): JSX.Element {
     }
 
     const normalizedValue = ((completedValue * 100) / totalValue).toFixed(0);
-    return `${normalizedValue}%`;
+    return parseInt(normalizedValue);
+  };
+
+  //   Helper
+  const getTextStyle = (): { left: string; color: string } => {
+    const rest = percentage < 10 ? percentage * 4 : 45;
+
+    return {
+      left: `calc(${percentage}% - ${rest}px)`,
+      color: percentage < 5 ? "black" : "white",
+    };
   };
 
   return (
@@ -37,15 +60,14 @@ export function ProgressBar({ data, loading }: Props): JSX.Element {
       {/* Progress */}
       <div
         class={style.progress__current}
-        style={{ width: getCompletedPercentage() }}
+        style={{ width: `${percentage}%` }}
       />
       {/* Text */}
-      <div
-        class={style.progress__percentage}
-        style={{ left: `calc(${getCompletedPercentage()} - 40px)` }}
-      >
-        {getCompletedPercentage()}
-      </div>
+      {!error && (
+        <div class={style.progress__percentage} style={getTextStyle()}>
+          {percentage}%
+        </div>
+      )}
     </div>
   );
 }

@@ -16,12 +16,14 @@ type Props = {
   data: TasksData;
   isLoading: boolean;
   updateTasks: Function;
+  error?: boolean;
 };
 
 export function TasksList({
   data,
   isLoading,
   updateTasks,
+  error = false,
 }: Props): JSX.Element {
   const [shownTasks, setShownTasks] = useState<number[]>([]);
 
@@ -93,7 +95,7 @@ export function TasksList({
             </div>
           </div>
           <div
-            style={{ maxHeight: isOpen ? 200 : 0 }}
+            style={{ maxHeight: isOpen ? 500 : 0 }}
             class={style.tasksList__wrapper}
           >
             <ul class={style.tasksList}>{renderTasks(group.tasks, index)}</ul>
@@ -108,13 +110,18 @@ export function TasksList({
       <div class={style.container__header}>
         <h3 class={style.header__title}>Lodgify Grouped Tasks</h3>
         {/* Progress bar */}
-        <ProgressBar data={data} loading={isLoading} />
+        <ProgressBar data={data} loading={isLoading} error={error} />
       </div>
       <ul class={style.container__group}>
-        {!isLoading && data ? (
-          renderGroups()
-        ) : (
-          <Loader container={50} size={35} />
+        {isLoading && <Loader container={50} size={35} />}
+        {!isLoading && data && renderGroups()}
+        {!isLoading && error && (
+          <div class={style.error_container}>
+            <img src="../../assets/icons/alert-octagon.svg" />
+            <p class={style.error__text}>
+              There was an error, try reloading the page.
+            </p>
+          </div>
         )}
       </ul>
     </div>

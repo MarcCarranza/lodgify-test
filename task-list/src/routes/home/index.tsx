@@ -14,6 +14,7 @@ import style from "./style.css";
 const Home = () => {
   const [tasksData, setTasksData] = useState<TasksData>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
+  const [hasError, setError] = useState<boolean>(false);
 
   useEffect(() => {
     getTasksList();
@@ -27,6 +28,7 @@ const Home = () => {
       .then((res) => {
         if (!res.ok) {
           console.log("Error on getTasksList then");
+          setError(true);
         }
         return res.json();
       })
@@ -35,6 +37,7 @@ const Home = () => {
       })
       .catch((err) => {
         console.log("Error on getTasksList catch", err);
+        setError(true);
       });
     setLoading(false);
   };
@@ -45,6 +48,7 @@ const Home = () => {
         data={tasksData}
         isLoading={isLoading}
         updateTasks={setTasksData}
+        error={hasError}
       />
     </div>
   );
