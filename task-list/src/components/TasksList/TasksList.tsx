@@ -59,11 +59,14 @@ export function TasksList({
     return tasks.map((task, index) => {
       return (
         <li class={style.tasksList__task} key={index}>
-          <input
-            type="checkbox"
-            checked={task.checked}
-            onChange={() => onToggleTaskCheck(groupIndex, index)}
-          />
+          <label>
+            <input
+              type="checkbox"
+              checked={task.checked}
+              onChange={() => onToggleTaskCheck(groupIndex, index)}
+            />
+            <span class={style.checkmark} />
+          </label>
           <p>{task.description}</p>
         </li>
       );
@@ -72,7 +75,8 @@ export function TasksList({
 
   const renderGroups = (): JSX.Element[] => {
     return data.map((group, index) => {
-      const isOpen = isListOpen(index);
+      // const isOpen = isListOpen(index);
+      const isOpen = true;
       return (
         <li class={style.group__wrapper} key={index}>
           <div class={style.group}>
