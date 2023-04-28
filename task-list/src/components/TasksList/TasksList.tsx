@@ -75,8 +75,8 @@ export function TasksList({
 
   const renderGroups = (): JSX.Element[] => {
     return data.map((group, index) => {
-      // const isOpen = isListOpen(index);
-      const isOpen = true;
+      const isOpen = isListOpen(index);
+
       return (
         <li class={style.group__wrapper} key={index}>
           <div class={style.group}>

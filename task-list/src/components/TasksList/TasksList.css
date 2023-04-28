@@ -123,7 +123,7 @@
 label {
   display: block;
   position: relative;
-  padding-left: 35px;
+  width: 17px;
   cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
@@ -142,7 +142,7 @@ input[type="checkbox"] {
 
 .checkmark {
   position: absolute;
-  top: 0;
+  top: 15px;
   left: 0;
   height: 15px;
   width: 15px;
