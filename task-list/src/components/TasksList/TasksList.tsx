@@ -73,12 +73,22 @@ export function TasksList({
       return (
         <li class={style.group__wrapper} key={index}>
           <div class={style.group}>
-            <span class={style.group__name}>{group.name}</span>
+            <img
+              class={style.group__icon}
+              src="../../assets/icons/clipboard.svg"
+            />
+            <p class={style.group__name}>{group.name}</p>
             <div
               class={style.group__toggle}
               onClick={() => onToggleTaskList(index)}
             >
-              {isOpen ? "Hide" : "Show"}
+              <div class={style.toggle__wrapper}>
+                <p class={style.toggle__text}>{isOpen ? "Hide" : "Show"}</p>
+                <img
+                  src="../../assets/icons/chevron-down.svg"
+                  style={{ transform: `scaleY( ${isOpen ? -1 : 1})` }}
+                />
+              </div>
             </div>
           </div>
           <div

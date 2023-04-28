@@ -19,4 +19,7 @@
     z-index: 99;
     font-size: .95rem;
     transition: left .3s ease-out;
+    line-height: 1.2;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
 }

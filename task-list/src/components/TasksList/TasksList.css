@@ -1,4 +1,5 @@
 /* TODO: Check that styles are consistent throught browsers */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Poppins:wght@700&display=swap');
 
 .container {
     border: 1px solid gainsboro;
@@ -8,6 +9,7 @@
     min-width: 500px;
     padding: 1rem;
     margin: 1rem;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .container__header {
@@ -17,6 +19,8 @@
 .header__title {
     margin: 0;
     padding: .5rem 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
 }
 
 .container__group {
@@ -38,14 +42,48 @@
 
 .group {
     display: flex;
+    align-items: center;
+}
+
+.group__icon {
+    height: 1.2rem;
+    opacity: .35;
 }
 
 .group__name {
-    flex: 8
+    flex: 8;
+    font-weight: 500;
+    margin: 0;
+    padding: .5rem .5rem;
+    display: flex;
+    align-items: center;
 }
 
 .group__toggle {
-    flex: 2
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.toggle__wrapper {
+    display: flex;
+    opacity: .35;
+    transition: opacity .2s linear;
+}
+
+.toggle__text {
+    margin: 0;
+    font-size: .9rem;
+}
+
+.toggle__wrapper img {
+    transition: transform .2s ease-out;
+}
+
+.toggle__wrapper:hover {
+    opacity: .7;
 }
 
 .tasksList__wrapper {
