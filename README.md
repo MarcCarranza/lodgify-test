@@ -46,7 +46,7 @@ You'll find the component **Loader**, which at first does nothing as the respons
 // setLoading(false);
 ```
 
-and reloading the page then the Loader will show up (but the data won't be shown).
+and then reloading the page will render the loader (but the data won't be shown).
 
 ![](https://github.com/MarcCarranza/lodgify-test/blob/main/src/assets/load.gif)
 
