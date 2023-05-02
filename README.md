@@ -3,7 +3,8 @@
 ## **Make it run** 👟
 
 - Install the project dependencies with `npm install`.
-- Once installed, execute `npm run dev` or `npm build` and `npm run serve` on your terminal and click on the URL once it´s compiled.
+- Once installed, execute `npm run dev` on your terminal and click on the URL once it´s compiled.
+- For a production-like build, execute `npm build` and `npm run serve`.
 
 ## Libraries 📚
 
